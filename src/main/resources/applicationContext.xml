@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- id表示获取到对象标识 class创建那个类的对象 -->
+	<bean id="peo" class="com.pojo.People">
+		<constructor-arg index="0" value="1"></constructor-arg>
+		<constructor-arg index="1" value="张三"></constructor-arg>
+		<constructor-arg index="2" value="33"></constructor-arg>
+	</bean>
+	<bean id="peo1" class="com.pojo.People">
+		<constructor-arg name="id" value="2"></constructor-arg>
+		<constructor-arg name="name" value="李四"></constructor-arg>
+		<constructor-arg name="age" value="35"></constructor-arg>
+	</bean>
+	<!-- 这样来指定顺序，不然构造方法重载时，会从构造方法最后一个开始寻找，不去看参数的顺序 -->
+	<bean id="peo2" class="com.pojo.People">
+		<constructor-arg index="0" name="id" value="2"></constructor-arg>
+		<constructor-arg index="1" name="name" value="李四"></constructor-arg>
+		<constructor-arg index="2" name="age" value="36"></constructor-arg>
+	</bean>
+	
+	<!-- 2.实例工厂 -->
+	<bean id="factory" class="com.pojo.PeopleExampleFactory"></bean>
+	<bean id="peo3" factory-bean="factory" factory-method="newInstance"></bean>
+	
+	<!-- 3.静态工厂创建对象 -->
+	<bean id="peo4" class="com.pojo.PeopleStaticFactory" factory-method="newInstance"></bean>
+</beans>
