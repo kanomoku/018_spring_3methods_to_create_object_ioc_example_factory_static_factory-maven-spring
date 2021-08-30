@@ -5,6 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!-- 1.通过构造方法创建 -->
 	<!-- id表示获取到对象标识 class创建那个类的对象 -->
 	<bean id="peo" class="com.pojo.People">
 		<constructor-arg index="0" value="1"></constructor-arg>

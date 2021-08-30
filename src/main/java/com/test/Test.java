@@ -2,6 +2,9 @@ package com.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.pojo.People;
 import com.pojo.PeopleExampleFactory;
@@ -41,14 +44,14 @@ public class Test {
 //		3. 编写测试方法
 //			3.1 getBean(“<bean>标签id值”,返回值类型);如果没有第二个参数,默认是Object
 //			3.2 getBeanDefinitionNames(),Spring 容器中目前所有管理的所有对象.
-		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 //		以下是三种较常见的 ApplicationContext 实现方式：
 //		1、ClassPathXmlApplicationContext：从classpath的XML配置文件中读取上下文，并生成上下文定义。应用程序上下文从程序环境变量中
-//		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 //		2、FileSystemXmlApplicationContext ：由文件系统中的XML配置文件读取上下文。
-//		ApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
+//		ApplicationContext ac = new FileSystemXmlApplicationContext("src/main/resources/applicationContext.xml");
 //		3、XmlWebApplicationContext：由Web应用的XML文件读取上下文。
+//		WebApplicationContext ac = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext());
 //		4.AnnotationConfigApplicationContext(基于Java配置启动容器)
 
 		
